@@ -1,12 +1,6 @@
 import React from "react";
-import { Transaction } from "../App";
 
-interface Props {
-  transactions: Transaction[];
-  onDelete: (id: number) => void;
-}
-
-export default function TransactionList({ transactions, onDelete }: Props) {
+export default function TransactionList({ transactions, onDelete }) {
   return (
     <div className="transaction-list">
       <h3>Transactions</h3>

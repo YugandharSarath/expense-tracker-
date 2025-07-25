@@ -1,14 +1,10 @@
 import React from "react";
-import { Transaction } from "../App";
 
-interface Props {
-  transactions: Transaction[];
-}
-
-export default function Summary({ transactions }: Props) {
+export default function Summary({ transactions }) {
   const expense = transactions
     .filter((tx) => tx.type === "expense")
     .reduce((acc, tx) => acc + tx.amount, 0);
+
   const budget = transactions
     .filter((tx) => tx.type === "budget")
     .reduce((acc, tx) => acc + tx.amount, 0);

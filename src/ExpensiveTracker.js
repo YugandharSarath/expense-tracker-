@@ -4,23 +4,12 @@ import TransactionList from "./components/TransactionList";
 import Summary from "./components/Summary";
 import "./App.css";
 
-export interface Transaction {
-  id: number;
-  description: string;
-  amount: number;
-  type: "expense" | "budget";
-}
-
-export default function App() {
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
+export default function ExpenseTracker() {
+  const [transactions, setTransactions] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const addTransaction = (
-    desc: string,
-    amount: number,
-    type: "expense" | "budget"
-  ) => {
-    const newTransaction: Transaction = {
+  const addTransaction = (desc, amount, type) => {
+    const newTransaction = {
       id: Date.now(),
       description: desc,
       amount,
@@ -29,7 +18,7 @@ export default function App() {
     setTransactions([newTransaction, ...transactions]);
   };
 
-  const removeTransaction = (id: number) => {
+  const removeTransaction = (id) => {
     setTransactions(transactions.filter((tx) => tx.id !== id));
   };
 

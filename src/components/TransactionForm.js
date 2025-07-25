@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 
-interface Props {
-  onAdd: (desc: string, amount: number, type: "expense" | "budget") => void;
-}
-
-export default function TransactionForm({ onAdd }: Props) {
+export default function TransactionForm({ onAdd }) {
   const [amount, setAmount] = useState("");
   const [desc, setDesc] = useState("");
-  const [type, setType] = useState<"expense" | "budget">("expense");
+  const [type, setType] = useState("expense");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!desc || !amount) return;
     onAdd(desc, +amount, type);
